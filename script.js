@@ -93,40 +93,29 @@ shareButton?.addEventListener("click", async () => {
   }
 });
 
-// A quiet original chime loop. Sound begins only after a guest asks for it.
+// The couple's chosen music starts only after a guest asks for it.
 const musicButton = document.getElementById("music-toggle");
-let audioContext;
-let musicInterval;
-let musicEnabled = false;
-let noteIndex = 0;
-const notes = [261.63, 329.63, 392, 523.25, 392, 329.63, 293.66, 392];
-function playChime() {
-  if (!musicEnabled || !audioContext) return;
-  const time = audioContext.currentTime;
-  const oscillator = audioContext.createOscillator();
-  const volume = audioContext.createGain();
-  oscillator.type = "sine";
-  oscillator.frequency.value = notes[noteIndex++ % notes.length];
-  volume.gain.setValueAtTime(0, time);
-  volume.gain.linearRampToValueAtTime(0.018, time + 0.14);
-  volume.gain.exponentialRampToValueAtTime(0.0001, time + 2.3);
-  oscillator.connect(volume).connect(audioContext.destination);
-  oscillator.start(time);
-  oscillator.stop(time + 2.35);
-}
+const weddingMusic = new Audio("audio/wedding-music.mp3");
+weddingMusic.loop = true;
+weddingMusic.preload = "none";
+weddingMusic.volume = 0.35;
 musicButton?.addEventListener("click", async () => {
-  musicEnabled = !musicEnabled;
-  const AudioContextImpl = window.AudioContext || window.webkitAudioContext;
-  if (musicEnabled && AudioContextImpl) {
-    audioContext ||= new AudioContextImpl();
-    if (audioContext.state === "suspended") await audioContext.resume();
-    playChime();
-    musicInterval = window.setInterval(playChime, 1250);
+  const label = musicButton.querySelector(".music-label");
+  if (weddingMusic.paused) {
+    try {
+      await weddingMusic.play(); // Starts only in response to the guest's tap.
+      musicButton.setAttribute("aria-pressed", "true");
+      musicButton.setAttribute("aria-label", "Pause wedding music");
+      label.textContent = "SOUND ON";
+    } catch {
+      musicButton.setAttribute("aria-pressed", "false");
+      musicButton.setAttribute("aria-label", "Play wedding music");
+      label.textContent = "TAP TO PLAY";
+    }
   } else {
-    musicEnabled = false;
-    window.clearInterval(musicInterval);
+    weddingMusic.pause();
+    musicButton.setAttribute("aria-pressed", "false");
+    musicButton.setAttribute("aria-label", "Play wedding music");
+    label.textContent = "SOUND OFF";
   }
-  musicButton.setAttribute("aria-pressed", String(musicEnabled));
-  musicButton.setAttribute("aria-label", musicEnabled ? "Pause gentle celebration chimes" : "Play gentle celebration chimes");
-  musicButton.querySelector(".music-label").textContent = musicEnabled ? "SOUND ON" : "SOUND OFF";
 });

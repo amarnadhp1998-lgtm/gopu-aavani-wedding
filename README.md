@@ -22,6 +22,7 @@ The map links search Google Maps for each supplied venue and address. The phone 
 - Edit the `wedding` object at the top of `script.js` to update the countdown date, names, and invitation date. `ceremony` uses an explicit India Standard Time offset (`+05:30`).
 - The eight original couple and family photographs are in `images/` and are used directly with relative website paths. The opening portrait is `photo_5968711194103189351_w.jpg`; two story photographs and five distinct gallery selections use the others. No originals were edited or replaced. The gallery opens a full-screen viewer; tap/click, Escape, and the previous/next controls work.
 - The page uses a real couple photograph for Open Graph and Twitter link previews. `share-card.png` is an optional typographic alternative if you prefer not to show a photograph in a preview.
+- The background music is `audio/wedding-music.mp3`. Replace that file to change the track; keep the same filename, or update the path in `script.js`. Guests start and pause it with the SOUND button, since phones block autoplay. The Pages workflow includes the `audio/` folder in the deployed site.
 
 ## Free hosting and sharing
 
@@ -31,4 +32,4 @@ The WhatsApp share button uses the phone’s native share sheet when supported a
 
 There is no RSVP form or response database. No RSVP email was supplied, so the site does not contain a fake RSVP destination. If you want online RSVPs later, add a free form or Google Form and review its free-tier limits and privacy terms.
 
-Google Fonts are loaded remotely; system font fallbacks keep the page readable without them. Wedding photos are self-hosted with the site, the hero loads eagerly, and the gallery images load lazily. The site includes responsive layouts, mobile navigation, a live countdown, reduced-motion support, accessible labels and headings, click-to-call contacts, venue directions, a full-screen photo viewer, WhatsApp sharing, and a guest-controlled browser-generated chime loop.
+Google Fonts are loaded remotely; system font fallbacks keep the page readable without them. Wedding photos and music are self-hosted with the site, the hero loads eagerly, and the gallery images load lazily. The site includes responsive layouts, mobile navigation, a live countdown, reduced-motion support, accessible labels and headings, click-to-call contacts, venue directions, a full-screen photo viewer, WhatsApp sharing, and guest-controlled background music.
