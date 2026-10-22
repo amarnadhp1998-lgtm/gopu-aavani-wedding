@@ -1,0 +1,2 @@
+[functions.wishes]
+verify_jwt = false

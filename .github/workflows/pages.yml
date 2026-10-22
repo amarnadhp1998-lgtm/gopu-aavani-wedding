@@ -28,7 +28,7 @@ jobs:
       - name: Prepare static site files
         run: |
           mkdir -p _site/images _site/audio
-          cp index.html style.css photo-sections.css script.js _site/
+          cp index.html style.css photo-sections.css wishes.css wishes-config.js script.js _site/
           cp images/* _site/images/
           cp audio/* _site/audio/
       - name: Upload static site

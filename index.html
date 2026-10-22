@@ -20,9 +20,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=ios-audio-20261022">
+  <link rel="stylesheet" href="style.css?v=wishes-20261022">
   <link rel="stylesheet" href="photo-sections.css">
-  <script defer src="script.js?v=audio-20261022"></script>
+  <link rel="stylesheet" href="wishes.css?v=wishes-20261022">
+  <script defer src="wishes-config.js?v=wishes-20261022"></script>
+  <script defer src="script.js?v=wishes-20261022"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to the invitation</a>
@@ -30,7 +32,7 @@
     <a class="brand" href="#top" aria-label="Gopu and Aavani, home"><span>G</span><i>♥</i><span>A</span></a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span></span><span></span></button>
     <nav id="site-nav" class="nav" aria-label="Main navigation">
-      <a href="#letter">A letter</a><a href="#story">Our story</a><a href="#celebration">Celebration</a><a href="#family">Our families</a><a href="#gallery">Photos</a>
+      <a href="#letter">A letter</a><a href="#story">Our story</a><a href="#celebration">Celebration</a><a href="#family">Our families</a><a href="#wishes">Wishes</a><a href="#gallery">Photos</a>
       <a class="nav-share" href="#share">Share <span>↗</span></a>
     </nav>
   </header>
@@ -99,14 +101,26 @@
       </div>
     </section>
 
+    <section class="wishes-section section-pad" id="wishes" aria-labelledby="wishes-title">
+      <div class="section-kicker"><span>04</span><span class="kicker-line"></span><span>LOVE, LEFT HERE FOR US</span></div>
+      <div class="wishes-heading"><p class="eyebrow">A little note for our forever</p><h2 id="wishes-title">Your wishes,<br><em>our forever memories.</em></h2><p>Every wish means the world to us. Leave us a little love, and we’ll keep it close.</p></div>
+      <div class="wishes-count" aria-live="polite"><span class="wishes-count-mark" aria-hidden="true">♡</span><span><b id="wishes-total">—</b><small>approved wishes in our memory book</small></span></div>
+      <div class="wishes-wall" id="wishes-wall" aria-live="off" aria-label="Approved wedding wishes"></div>
+      <div class="wishes-controls" id="wishes-controls" hidden><button type="button" id="wish-prev" aria-label="Previous wishes">←</button><span id="wish-position" aria-live="polite"></span><button type="button" id="wish-next" aria-label="Next wishes">→</button></div>
+      <div class="wishes-actions"><button class="wish-primary" id="open-wish-form" type="button">Send Your Wishes <span aria-hidden="true">♡</span></button><button class="wish-secondary" id="view-all-wishes" type="button" hidden>Read all wishes</button></div>
+      <p class="wishes-note" id="wishes-status" role="status">Our memory book is ready for your note.</p>
+      <p class="wishes-empty" id="wishes-empty" hidden>Our memory book is waiting for its first approved note. Be the first to leave us a little love.</p>
+      <div class="wishes-all" id="wishes-all" hidden aria-label="All approved wedding wishes"></div><button class="wish-load-more" id="wish-load-more" type="button" hidden>Load more wishes</button>
+    </section>
+
     <section class="journey section-pad" id="journey">
-      <div class="section-kicker"><span>04</span><span class="kicker-line"></span><span>THE JOURNEY</span></div>
+      <div class="section-kicker"><span>05</span><span class="kicker-line"></span><span>THE JOURNEY</span></div>
       <div class="journey-heading"><p class="eyebrow">A day that brings us together</p><h2>From morning <em>to evening.</em></h2><p>Save the date, find your way, and come celebrate with us.</p></div>
       <div class="journey-line"><article><time>6:30 AM</time><span class="journey-dot"></span><div><h3>The groom’s party departs</h3><p>Sharing the happiness: Dear &amp; Near</p></div></article><article><time>9:42–10:10 AM</time><span class="journey-dot"></span><div><h3>Wedding muhurtham</h3><p>Cosmo Convention Centre · Vavvakavu, Karunagappally</p></div></article><article><time>6:00–9:00 PM</time><span class="journey-dot"></span><div><h3>Wedding reception</h3><p>ST. ALPHONSA PARISH HALL · Ambika Market, Vaikom</p></div></article></div>
     </section>
 
     <section class="gallery section-pad" id="gallery" aria-labelledby="gallery-title">
-      <div class="section-kicker"><span>05</span><span class="kicker-line"></span><span>THE MOMENTS WE’LL KEEP</span></div>
+      <div class="section-kicker"><span>06</span><span class="kicker-line"></span><span>THE MOMENTS WE’LL KEEP</span></div>
       <div class="gallery-heading"><p class="eyebrow">A little more of us</p><h2 id="gallery-title">The way I see <em>you.</em></h2><p>Tap any photograph to see it a little closer.</p></div>
       <div class="gallery-grid">
         <button class="gallery-item gallery-portrait" data-photo="0" aria-label="View photo: Together, just as we are"><img src="images/photo_5968813229641240434_w.jpg" alt="Gopu and Aavani sharing a quiet, affectionate moment" loading="lazy" decoding="async"><span>Together, just as we are</span></button>
@@ -123,6 +137,23 @@
   <footer class="footer"><a class="brand" href="#top" aria-label="Back to top"><span>G</span><i>♥</i><span>A</span></a><p>Made with love, from Gopu to Aavani.</p><div class="footer-phones"><a href="tel:+919995769171">Kunjumon · 9995769171</a><a href="tel:+918921159008">Bindhumol · 8921159008</a></div><small>Gopu Kunjumon &amp; Aavani L.H · 16.11.2026</small></footer>
   <button class="music-toggle" id="music-toggle" type="button" aria-pressed="false" aria-label="Play wedding music"><span class="music-icon">♫</span><span class="music-label">SOUND OFF</span></button>
   <dialog class="lightbox" id="lightbox" aria-label="Wedding photo viewer"><button class="lightbox-close" aria-label="Close photo viewer">×</button><button class="lightbox-prev" aria-label="Previous photo">‹</button><figure><img id="lightbox-image" alt=""><figcaption id="lightbox-caption"></figcaption></figure><button class="lightbox-next" aria-label="Next photo">›</button><span class="lightbox-count"></span></dialog>
+  <dialog class="wish-dialog" id="wish-dialog" aria-labelledby="wish-dialog-title">
+    <button class="wish-dialog-close" type="button" aria-label="Close wishes form">×</button>
+    <div class="wish-dialog-ornament" aria-hidden="true">♡</div>
+    <p class="eyebrow">A little love to keep</p><h2 id="wish-dialog-title">Send us your wishes.</h2>
+    <p class="wish-dialog-intro">Your note will be shared with us privately first. With your permission below, we may add it to our public memory book after review.</p>
+    <form id="wish-form" novalidate>
+      <label for="wish-name">Your name</label><input id="wish-name" name="name" type="text" maxlength="60" autocomplete="name" required placeholder="The name we know you by">
+      <label for="wish-message">Your wedding wish</label><textarea id="wish-message" name="message" rows="4" maxlength="500" required placeholder="Write a little love for Gopu &amp; Aavani…"></textarea><div class="wish-char-count"><span>Up to 500 characters</span><span id="wish-char-count">0 / 500</span></div>
+      <label class="wish-consent"><input id="wish-consent" name="consent" type="checkbox" required><span>I’m happy for Gopu &amp; Aavani to publish my name and wish after they approve it.</span></label>
+      <label class="wish-honeypot" aria-hidden="true" tabindex="-1">Leave this field empty<input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+      <div id="turnstile-container" class="turnstile-container"></div>
+      <p class="wish-form-status" id="wish-form-status" role="status" aria-live="polite"></p>
+      <button class="wish-submit" id="wish-submit" type="submit">Send our note <span aria-hidden="true">♡</span></button>
+    </form>
+    <div class="wish-success" id="wish-success" hidden><span aria-hidden="true">♡</span><h3>Your love is safely with us.</h3><p>Thank you for being part of our story. Your wish is saved and waiting for our review.</p><button type="button" id="wish-success-close">Close with love</button></div>
+  </dialog>
+  <aside class="wish-toast" id="wish-toast" aria-live="polite" aria-atomic="true" hidden><div class="wish-toast-copy"><span class="eyebrow">A NOTE FROM SOMEONE WHO LOVES YOU</span><p id="wish-toast-message"></p><small id="wish-toast-name"></small></div><div class="wish-toast-actions"><button type="button" id="wish-toast-pause" aria-pressed="false">Pause notes</button><button type="button" id="wish-toast-dismiss" aria-label="Dismiss this wish">×</button></div></aside>
   <noscript><p class="noscript">The countdown and WhatsApp share button need JavaScript. All wedding details, map links, and family phone numbers are available above.</p></noscript>
 </body>
 </html>
