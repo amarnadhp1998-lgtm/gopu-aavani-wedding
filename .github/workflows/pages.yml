@@ -25,10 +25,15 @@ jobs:
         uses: actions/checkout@v6
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
+      - name: Prepare static site files
+        run: |
+          mkdir -p _site/images
+          cp index.html style.css photo-sections.css script.js _site/
+          cp images/* _site/images/
       - name: Upload static site
         uses: actions/upload-pages-artifact@v4
         with:
-          path: .
+          path: _site
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
